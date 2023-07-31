@@ -1,0 +1,11 @@
+package com.nisum.examen.repository;
+
+import com.nisum.examen.model.entity.User;
+import java.util.UUID;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, UUID> {
+    Boolean findUserByEmailExists(String email);
+}
