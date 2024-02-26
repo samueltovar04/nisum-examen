@@ -1,11 +1,8 @@
 package com.nisum.examen.exception;
 
 import java.io.IOException;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -23,6 +20,13 @@ public class ControllerExceptionHandler {
         return new ResponseEntity<>(
                 ErrorMessage.builder()
                         .message(ex.getMessage()).build(), HttpStatus.NOT_ACCEPTABLE);
+    }
+
+    @ExceptionHandler(UserExistException.class)
+    public ResponseEntity<ErrorMessage> emailNotFoundException(UserExistException ex) {
+        return new ResponseEntity<>(
+            ErrorMessage.builder()
+                .message(ex.getMessage()).build(), HttpStatus.NOT_FOUND);
     }
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<ErrorMessage> pmsBadRequestException(IllegalArgumentException ex) {
@@ -45,11 +49,4 @@ public class ControllerExceptionHandler {
 
     }
 
-    @ExceptionHandler(AccessDeniedException.class)
-    @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    public ResponseEntity<ErrorMessage> invalidCredentials(Throwable e) {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .body(new ErrorMessage(e.getMessage()));
-    }
 }

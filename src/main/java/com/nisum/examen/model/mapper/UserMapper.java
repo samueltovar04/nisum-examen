@@ -8,13 +8,11 @@ import com.nisum.examen.model.request.PhoneRequest;
 import com.nisum.examen.model.request.UserRequest;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.stereotype.Component;
-
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+import org.springframework.stereotype.Component;
 
 @Component
 public class UserMapper {
@@ -69,7 +67,7 @@ public class UserMapper {
                 .build();
     }
 
-    private String getToken(UserRequest user){
+    public String getToken(UserRequest user){
         return Jwts.builder()
                 .setId(String.valueOf(System.currentTimeMillis()))
                 .setSubject(user.getName())
