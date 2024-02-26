@@ -72,7 +72,7 @@ y Swagger para la documentación de la API. A continuación, se proporcionan ins
 
 ## Configuración del Proyecto
 
-1. Clone el repositorio: git clone github.com@samueltovar04/nisum-examen.git
+1. Clone el repositorio: git clone git@github.com:samueltovar04/nisum-examen.git
 2. Abra el proyecto en su IDE preferido.
 3. Ajuste la configuración de la base de datos en el archivo src/main/resources/application.properties.
    Por default esta configurado un H2
