@@ -2,7 +2,9 @@
 
 
 Evaluación JAVA - API RESTful de Creación de Usuarios
-Este proyecto consiste en una aplicación Java que expone una API RESTful para la creación de usuarios. La aplicación utiliza Spring Boot como framework, JPA para la persistencia en una base de datos en memoria (H2), JWT para la autenticación, y Swagger para la documentación de la API. A continuación, se proporcionan instrucciones detalladas sobre cómo probar y entender la solución.
+Este proyecto consiste en una aplicación Java que expone una API RESTful para la creación de usuarios. La aplicación utiliza Spring Boot como framework, 
+JPA para la persistencia en una base de datos en memoria (H2), JWT para la autenticación, 
+y Swagger para la documentación de la API. A continuación, se proporcionan instrucciones detalladas sobre cómo probar y entender la solución.
 
 ## Requisitos
 
@@ -47,10 +49,6 @@ Este proyecto consiste en una aplicación Java que expone una API RESTful para l
 |   |   |                   |-- UserService.java
 |   |   |                      |-- impl/
 |   |   |                         |-- UserServiceImpl.java
-|   |   |               |-- util/
-|   |   |               |   |-- JwtUtil.java
-|   |   |               |
-
 
 |   |   |
 |   |   |-- resources/
@@ -74,7 +72,7 @@ Este proyecto consiste en una aplicación Java que expone una API RESTful para l
 
 ## Configuración del Proyecto
 
-1. Clone el repositorio: git clone 
+1. Clone el repositorio: git clone github.com@samueltovar04/nisum-examen.git
 2. Abra el proyecto en su IDE preferido.
 3. Ajuste la configuración de la base de datos en el archivo src/main/resources/application.properties.
    Por default esta configurado un H2
@@ -94,7 +92,7 @@ se entiende son credenciales para pruebas y en ningun momento algo productivo.
 La documentación de la API se realiza mediante Swagger y estará disponible en http://localhost:8080/swagger-ui/index.html#/
 
 Si bien en Swagger se tiene toda la informacio del API, tambien se puede ejecutar en postman con un POST:
-http://localhost:8000/api/v1/users/register
+http://localhost:8000/api/v1/users/
 
 y un Body:
 ```
